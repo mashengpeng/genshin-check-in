@@ -7,8 +7,6 @@ import hashlib
 import requests  # pip install requests
 
 
-# coding=utf-8
-
 def get_ds():
     salt = '1OUn34iIy84ypu9cpXyun2VaQ2zuFeLm'
     timestamp = str(int(time.time()))
@@ -63,17 +61,17 @@ def check_in(cookie_string):
     game_info = get_game_info(cookies)
     if game_info['retcode'] != 0:
         print("Failed to get game info")
-        print(game_info)
+        print(game_info.encode("utf-8"))
     else:
         print("Successfully obtained game information")
-        print(game_info)
+        print(game_info.encode("utf-8"))
         check_in_res = bbs_sign_reward(cookies, get_ds(), game_info)
         if check_in_res['retcode'] == 0:
             print("Sign in successfully")
-            print(check_in_res)
+            print(check_in_res.encode("utf-8"))
         else:
             print("Failed to sign in")
-            print(check_in_res)
+            print(check_in_res.encode("utf-8"))
 
 
 # python index.py "_MHYUUID=bd20878a-1d35-457c-b84c-9ea929ced396; _ga=GA1.2.128251121.1653128272; _gid=GA1.2.321587272.1653128272; _gat=1"
