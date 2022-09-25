@@ -7,6 +7,8 @@ import hashlib
 import requests  # pip install requests
 
 
+# coding=utf-8
+
 def get_ds():
     salt = '1OUn34iIy84ypu9cpXyun2VaQ2zuFeLm'
     timestamp = str(int(time.time()))
@@ -39,7 +41,7 @@ def bbs_sign_reward(cookies, ds, game_info):
         'DS': ds,
         'x-rpc-app_version': '2.33.1',
         'x-rpc-client_type': '4',
-        "x-rpc-device_id": hashlib.md5((str(time.time())+"MIHOYO").encode(encoding='UTF-8')).hexdigest()
+        "x-rpc-device_id": hashlib.md5((str(time.time()) + "MIHOYO").encode(encoding='UTF-8')).hexdigest()
     }
     post_data = {
         "act_id": "e202009291139501",
