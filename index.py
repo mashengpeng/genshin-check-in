@@ -54,6 +54,9 @@ def bbs_sign_reward(cookies, ds, game_info):
 
 def check_in(cookie_string):
     print(cookie_string)
+    if cookie_string == "":
+        print("cookie is empty")
+        return
     cookies = cookie_str2dict(cookie_string)
     game_info = get_game_info(cookies)
     if game_info['retcode'] != 0:
